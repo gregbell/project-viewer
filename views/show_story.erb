@@ -1,0 +1,28 @@
+<h2><%= @story.name %></h2>
+
+<pre>
+  <%= @story.description.split("\n--\n")[0].to_s %>
+</pre>
+
+<dl>
+  
+  <dt>Story ID:</dt>
+  <dd><%= @story.id %></dd>
+  
+  <dt>Status:</dt>
+  <dd>Working On (<%= @story.owned_by %>)</dd>
+  
+
+  <dt>Requested By:</dt>
+  <dd><%= @story.requested_by %></dd>
+
+  <dt>Owned By:</dt>
+  <dd><%= @story.owned_by %></dd>
+  
+</dl>
+
+
+<h3>Assets</h3>
+<% @story.assets.each do |asset| %>
+  <a href="<%= asset.path %>"><img src="<%= asset.path %>" width="200" /></a><br />
+<% end %>
